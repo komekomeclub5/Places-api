@@ -11,7 +11,7 @@ DockerDesktopを事前にダウンロードしてください。
 
 [DockerをMacにインストールする（更新: 2019/7/13）](https://qiita.com/kurkuru/items/127fa99ef5b2f0288b81)
 
-
+　
 
 Google PlacesAPI のAPIキーを取得してください。
 
