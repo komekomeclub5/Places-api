@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route("/index")
 def index():
 
-    key = 'AIzaSyC3Eftre6s5DFioMnTjsM-ppWnivIHqx0M' # APIキー
+    key = 'APIキー' # APIキー
     client = googlemaps.Client(key) #インスタンス生成
 
     geocode_result = client.geocode('宜野湾市役所') # 位置情報を検索
