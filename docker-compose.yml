@@ -1,0 +1,9 @@
+version: '3'
+services: 
+    web:
+        build: .
+        command: python3 app/run.py
+        volumes:
+            - ./app:/app
+        ports:
+            - 8000:8000
