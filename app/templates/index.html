@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>{{name}}</title>
-    </head>
-    <body>
-    <h1>Webアプリ初心者のFlaskチュートリアル</h1>
-    <p>{{result_out}}</p>
 
-    </body>
+<head>
+  <title>{{name}}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#!">周辺のスーパーマーケットの営業状況</a>
+  </nav>
+
+  <div class="container">
+
+    <form class="my-2">
+      <div class="form-group">
+        <label for="exampleInputPassword1">場所</label>
+        <input type="例)東京駅" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">決定</button>
+    </form>
+
+    <table class="my-2 table">
+      <thead class="thead-light">
+        <tr>
+          <th>店舗名</th>
+          <th>営業状況</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results %}
+        <tr>
+          <td>{{result['name']}}</td>
+          <td>
+            {% if result['business_status']=='OPERATIONAL'  %}
+            <span class="badge badge-primary">通常営業</span>
+            {% elif result['business_status']=='CLOSED_TEMPORARILY' %}
+            <span class="badge badge-warning">臨時休業</span>
+            {% else %}
+            <span class="badge badge-secondary">不明</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- <ul class="list-group">
+      {% for result in results %}
+      <li class="list-group-item">
+        {% if result['business_status']=='OPERATIONAL'  %}
+        <span class="badge badge-primary">通常営業</span>
+        {% elif result['business_status']=='CLOSED_TEMPORARILY' %}
+        <span class="badge badge-warning">臨時休業</span>
+        {% else %}
+        <span class="badge badge-secondary">不明</span>
+        {% endif %}
+        {{result['name']}}
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div> -->
+
+
+
+</body>
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 </html>
