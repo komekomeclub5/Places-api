@@ -10,15 +10,18 @@ from flask import Flask,render_template,request
 #Flaskオブジェクトの生成
 app = Flask(__name__)
 
-
 @app.route("/")
-@app.route("/index")
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
+@app.route("/index",methods=["POST"])
 def index():
 
     key = 'AIzaSyC3Eftre6s5DFioMnTjsM-ppWnivIHqx0M' # APIキー
     client = googlemaps.Client(key) #インスタンス生成
-
-    geocode_result = client.geocode('宜野湾市役所') # 位置情報を検索
+    place = request.form["place"]
+    geocode_result = client.geocode(place) # 位置情報を検索
     loc = geocode_result[0]['geometry']['location'] # 軽度・緯度の情報のみ取り出す
     place_results = client.places_nearby(location=loc, radius=3000, type='supermarket') #半径3km以内のスーパーマーケットの情報を取得
     
@@ -29,7 +32,7 @@ def index():
     for place_result in place_results['results']:
         results.append(place_result)
 
-    return render_template("index.html",results=results)
+    return render_template("index.html",results=results,place=place)
 
 
 

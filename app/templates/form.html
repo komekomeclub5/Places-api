@@ -13,42 +13,16 @@
   </nav>
 
   <div class="container">
-    <br>
-    <h2><span>{{place}}</span>の検索結果</h2>
-    <br>
-    <table class="my-2 table">
-      <thead class="thead-light">
-        <tr>
-          <th>店舗名</th>
-          <th>営業状況</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for result in results %}
-        <tr>
-          <td>{{result['name']}}</td>
-          <td>
-            {% if result['business_status']=='OPERATIONAL'  %}
-            <span class="badge badge-primary">通常営業</span>
-            {% elif result['business_status']=='CLOSED_TEMPORARILY' %}
-            <span class="badge badge-warning">臨時休業</span>
-            {% else %}
-            <span class="badge badge-secondary">不明</span>
-            {% endif %}
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
 
-    <style>
-      h2 span{
-        font-weight: bold;
-      }
-    </style>
+    <form class="my-2" action="/index" method="POST">
+      <div class="form-group">
+        <label for="exampleInputPassword1">場所</label>
+        <input type="例)東京駅" class="form-control" name="place">
+      </div>
+      <button type="submit" class="btn btn-primary">決定</button>
+    </form>
 
-
-
+  </div>
 </body>
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
