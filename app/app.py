@@ -18,7 +18,7 @@ def form():
 @app.route("/index",methods=["POST"])
 def index():
 
-    key = 'AIzaSyC3Eftre6s5DFioMnTjsM-ppWnivIHqx0M' # APIキー
+    key = 'APIキー' # APIキー
     client = googlemaps.Client(key) #インスタンス生成
     place = request.form["place"]
     geocode_result = client.geocode(place) # 位置情報を検索
