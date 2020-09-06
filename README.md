@@ -22,9 +22,14 @@ Google PlacesAPI のAPIキーを取得してください。
 
 ## 使用方法
 
+初めて起動するとき
+```
+docker-compose up --build
+```
+
 起動
 ```
-docker-compose up -d
+docker-compose up
 ```
 
 ブラウザでアクセス
