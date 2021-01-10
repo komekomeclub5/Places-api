@@ -3,6 +3,7 @@
 ## 概要
 
 台風の時に周辺のスーパーマーケットの営業状態をひと目でわかるようにしたい。
+(将来的にユニオンの営業状態で台風の危険度を判断したい。)
 
 ## 事前準備
 
@@ -17,7 +18,7 @@ Google PlacesAPI のAPIキーを取得してください。
 
 [Get an API Key](https://developers.google.com/places/web-service/get-api-key)
 
-**APIキーを他の人が使うとGoogleに止められちゃうかも**
+
 
 
 ## 使用方法
